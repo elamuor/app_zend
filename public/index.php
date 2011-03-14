@@ -3,14 +3,17 @@
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
-// Define o ambiente da aplicação
+// Define o ambiente da aplicaï¿½ï¿½o
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'desenvolvimento'));
 
-// Garanto que a library/ está no include_path
+// Garanto que a library/ estï¿½ no include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library')
     ,realpath(APPLICATION_PATH . '/models/')  
+    ,realpath(APPLICATION_PATH . '/models/gateway/')  
+    ,realpath(APPLICATION_PATH . '/models/mapper/')  
+    ,realpath(APPLICATION_PATH . '/models/interface/')  
     ,realpath(APPLICATION_PATH . '/models/orm') 
     ,get_include_path()
 )));
@@ -21,7 +24,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
  */
 require_once 'Zend/Application.php';
 
-// Crio o Zend_Application, chamo o bootstrap, e rodo a aplicação
+// Crio o Zend_Application, chamo o bootstrap, e rodo a aplicaï¿½ï¿½o
 $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/app_zend.ini'
