@@ -1,0 +1,13 @@
+<div style=" float: left; width: 100%;" >
+	<?php
+	
+	foreach( $this->arProjetos as $projeto ) {
+		echo $this->partial( 'index/index.phtml', null, array( 'projeto' => $projeto ) );
+		echo '<hr style="width:100%;" />';
+	}
+	
+	?>
+
+</div>
+
+
